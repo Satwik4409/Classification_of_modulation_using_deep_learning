@@ -62,7 +62,7 @@ dr = 0.6  # dropout rate (%)
 sig_model = build_model_ConvNet(batch_normalization=False,activation='relu',in_shp=in_shp,dr=dr,classes=classes)       #Conventional CNN
 # sig_model = build_model_Depthwise(batch_normalization=False,activation='relu',in_shp=in_shp,dr=dr,classes=classes)   #Conventional CNN+Depthwise
 # sig_model = build_model_Separable(batch_normalization=True,activation='relu',in_shp=in_shp,dr=dr,classes=classes)    #Conventional CNN+Depthwise Separable
-opt = keras.optimizers.Adam(learning_rate=0.001)
+opt = Adam(learning_rate=0.001)
 sig_model.compile( loss='categorical_crossentropy',optimizer=opt,  metrics=['acc'])
 sig_model.build()
 sig_model.summary()
