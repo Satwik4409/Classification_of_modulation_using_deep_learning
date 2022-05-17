@@ -1,14 +1,2 @@
-# AMC-IoT
-AMC-IoT: Automatic Modulation Classification Using Efficient Convolutional Neural Networks for Low Powered IoT Devices
-
-cite as:
-Usman, Muhammad, and Jeong-A. Lee. "AMC-IoT: Automatic Modulation Classification Using Efficient Convolutional Neural Networks for Low Powered IoT Devices." 2020 International Conference on Information and Communication Technology Convergence (ICTC). IEEE, 2020.
-
-@inproceedings{usman2020amc,
-  title={AMC-IoT: Automatic Modulation Classification Using Efficient Convolutional Neural Networks for Low Powered IoT Devices},
-  author={Usman, Muhammad and Lee, Jeong-A},
-  booktitle={2020 International Conference on Information and Communication Technology Convergence (ICTC)},
-  pages={288--293},
-  year={2020},
-  organization={IEEE}
-}
+#Classification of modulation using deep learning
+AMC (automatic modulation categorization) is indeed a technique for determining a receiving signal's modulation. Current communication technologies, such as multiple input multiple output (MIMO), are used by IoT devices to receive the signal from various resources. Recognizing modulation is crucial. The latency requirement in IoT applications can be solved using content AMC methods mixed with deep learning techniques. An effective convolutional neural network has been proposed to categorise the modulation of received signals.
