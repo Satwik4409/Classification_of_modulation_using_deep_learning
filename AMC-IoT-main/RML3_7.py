@@ -10,7 +10,7 @@ from keras.regularizers import *
 import matplotlib.pyplot as plt
 # from tensorflow.python.keras.optimizers import *
 import seaborn as sns
-from tensorflow.python.keras.optimizers import Adam
+from tensorflow.keras.optimizers import Adam
 import _pickle as cPickle
 import random, sys, keras
 import csv
