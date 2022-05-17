@@ -10,18 +10,18 @@ from keras.regularizers import *
 import matplotlib.pyplot as plt
 # from tensorflow.python.keras.optimizers import *
 import seaborn as sns
-from tensorflow.python.keras.optimizers import adam
+from tensorflow.python.keras.optimizers import Adam
 import _pickle as cPickle
 import random, sys, keras
 import csv
 import tensorflow as tf
 config = tf.compat.v1.ConfigProto()
-config.gpu_options.allow_growth = True
-from tensorflow.compat.v2.keras.utils import multi_gpu_model
-from keras.utils import multi_gpu_model
-
-with open("RML2016.10a_dict.pkl", 'rb') as f:       #Dataset = RML 2016.10a
-#with open("RML2016.04C.multisnr.pkl", 'rb') as f:  #Dataset = RML2016.04C                                                                          
+config.gpu_options.allow_growth = False
+#from tensorflow.compat.v2.keras.utils import multi_gpu_model
+#from keras.utils import multi_gpu_model
+from tensorflow.python.keras.utils.multi_gpu_utils import multi_gpu_model
+#with open("RML2016.10a_dict.pkl", 'rb') as f:       #Dataset = RML 2016.10a
+with open("RML2016.04C.multisnr.pkl", 'rb') as f:  #Dataset = RML2016.04C                                                                          
     Xd = cPickle.load(f, encoding="latin1")
 from RML_Model import*
 snrs, mods = map(lambda j: sorted(list(set(map(lambda x: x[j], Xd.keys())))), [1, 0])
@@ -62,12 +62,12 @@ dr = 0.6  # dropout rate (%)
 sig_model = build_model_ConvNet(batch_normalization=False,activation='relu',in_shp=in_shp,dr=dr,classes=classes)       #Conventional CNN
 # sig_model = build_model_Depthwise(batch_normalization=False,activation='relu',in_shp=in_shp,dr=dr,classes=classes)   #Conventional CNN+Depthwise
 # sig_model = build_model_Separable(batch_normalization=True,activation='relu',in_shp=in_shp,dr=dr,classes=classes)    #Conventional CNN+Depthwise Separable
-opt = keras.optimizers.Adam(learning_rate=0.01)
+opt = keras.optimizers.Adam(learning_rate=0.001)
 sig_model.compile( loss='categorical_crossentropy',optimizer=opt,  metrics=['acc'])
 sig_model.build()
 sig_model.summary()
 nb_epoch = 100    # number of epochs to train on
-batch_size = 1024  # training batch size
+batch_size =256 # training batch size
 
 # # perform training...
 
